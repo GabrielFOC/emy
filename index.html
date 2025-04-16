@@ -32,14 +32,14 @@
       animation: float 12s ease-in-out infinite;
       z-index: 2;
     }
-    .planet1 { top: 5%; left: 10%; width: 150px; }
-    .planet2 { top: 25%; right: 10%; width: 130px; }
-    .planet3 { bottom: 15%; left: 20%; width: 170px; }
+    .planet1 { top: 5%; left: 10%; width: 120px; }
+    .planet2 { top: 25%; right: 10%; width: 100px; }
+    .planet3 { bottom: 15%; left: 20%; width: 130px; }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
     .rocket {
       position: absolute;
       top: 20%; right: -150px;
-      width: 210px;
+      width: 150px;
       animation: flyAcross 12s linear infinite;
       opacity: 0.9; z-index: 3;
     }
@@ -52,8 +52,22 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: center;
       gap: 2rem;
+      flex-wrap: wrap;
       z-index: 4;
+    }
+    @media (max-width: 768px) {
+      .surprise-pair {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .rocket {
+        width: 100px;
+      }
+      .planet1, .planet2, .planet3 {
+        width: 80px;
+      }
     }
     .surprise-block {
       display: flex;
@@ -61,8 +75,8 @@
       align-items: center;
     }
     .surprise-image {
-      width: 200px;
-      height: 200px;
+      width: 180px;
+      height: 180px;
       border-radius: 1rem;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       object-fit: cover;
@@ -73,7 +87,7 @@
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
       margin-top: 0.75rem;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: #F9A8D4;
       font-weight: 600;
       text-align: center;
@@ -87,8 +101,8 @@
     <img src="marte.png" class="planet planet2" alt="Planeta Marte" />
     <img src="jupiter.png" class="planet planet3" alt="Planeta Júpiter" />
     <img src="astronalta.png" class="rocket" alt="Foguete" />
-    <h1 class="text-4xl font-bold text-center mb-8 drop-shadow-lg">🌌 Tenho uma surpresa pra você 🌌</h1>
-    <button id="startBtn" class="bg-purple-600 hover:bg-purple-700 text-white text-xl px-6 py-3 rounded-full shadow-xl transition-all duration-300">
+    <h1 class="text-3xl sm:text-4xl font-bold text-center mb-8 drop-shadow-lg">🌌 Tenho uma surpresa pra você 🌌</h1>
+    <button id="startBtn" class="bg-purple-600 hover:bg-purple-700 text-white text-lg sm:text-xl px-6 py-3 rounded-full shadow-xl transition-all duration-300">
       Ver Surpresa ✨
     </button>
   </div>
@@ -97,7 +111,7 @@
     <div id="tsparticles2"></div>
     <div id="tsparticlesHearts" class="hidden"></div>
     <div class="mb-6">
-      <iframe class="rounded-lg" style="border-radius:12px" src="https://open.spotify.com/embed/track/7eJMfftS33KTjuF7lTsMCx?utm_source=generator" width="300" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe class="rounded-lg" style="border-radius:12px" src="https://open.spotify.com/embed/track/7eJMfftS33KTjuF7lTsMCx?utm_source=generator" width="100%" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
     <div id="pairContainer" class="surprise-pair">
       <div class="surprise-block">
