@@ -19,6 +19,7 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
     #tsparticles, #tsparticles2, #tsparticlesHearts {
       position: absolute;
       top: 0; left: 0;
@@ -26,6 +27,7 @@
       z-index: 1;
       pointer-events: none;
     }
+
     .planet {
       position: absolute;
       opacity: 0.9;
@@ -35,19 +37,28 @@
     .planet1 { top: 5%; left: 10%; width: 120px; }
     .planet2 { top: 25%; right: 10%; width: 100px; }
     .planet3 { bottom: 15%; left: 20%; width: 130px; }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
     .rocket {
       position: absolute;
       top: 20%; right: -150px;
       width: 150px;
       animation: flyAcross 12s linear infinite;
-      opacity: 0.9; z-index: 3;
+      opacity: 0.9;
+      z-index: 3;
     }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
     @keyframes flyAcross {
       0% { transform: translateX(150px) rotate(10deg); opacity: 0; }
-      10% { opacity: 1; } 90% { opacity: 1; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
       100% { transform: translateX(-110vw) rotate(10deg); opacity: 0; }
     }
+
     .surprise-pair {
       display: flex;
       flex-direction: row;
@@ -57,6 +68,7 @@
       flex-wrap: wrap;
       z-index: 4;
     }
+
     @media (max-width: 768px) {
       .surprise-pair {
         flex-direction: column;
@@ -66,14 +78,24 @@
         width: 100px;
       }
       .planet1, .planet2, .planet3 {
-        width: 80px;
+        width: 70px;
+      }
+      h1 {
+        font-size: 1.5rem !important;
+        padding: 0 1rem;
+      }
+      #startBtn {
+        font-size: 1rem !important;
+        padding: 0.75rem 1.5rem !important;
       }
     }
+
     .surprise-block {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+
     .surprise-image {
       width: 180px;
       height: 180px;
@@ -83,6 +105,7 @@
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
     }
+
     .caption {
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
@@ -95,23 +118,27 @@
   </style>
 </head>
 <body class="min-h-screen">
+  <!-- Tela inicial -->
   <div id="welcomeScreen" class="space-bg text-white flex flex-col items-center justify-center min-h-screen p-4 relative transition-opacity duration-800">
     <div id="tsparticles"></div>
     <img src="terra.png" class="planet planet1" alt="Planeta Terra" />
     <img src="marte.png" class="planet planet2" alt="Planeta Marte" />
     <img src="jupiter.png" class="planet planet3" alt="Planeta Júpiter" />
     <img src="astronalta.png" class="rocket" alt="Foguete" />
-    <h1 class="text-3xl sm:text-4xl font-bold text-center mb-8 drop-shadow-lg">🌌 Tenho uma surpresa pra você 🌌</h1>
-    <button id="startBtn" class="bg-purple-600 hover:bg-purple-700 text-white text-lg sm:text-xl px-6 py-3 rounded-full shadow-xl transition-all duration-300">
+
+    <h1 class="text-4xl sm:text-5xl font-bold text-center mb-8 drop-shadow-lg z-10">🌌 Tenho uma surpresa pra você 🌌</h1>
+
+    <button id="startBtn" class="bg-purple-600 hover:bg-purple-700 text-white text-xl sm:text-2xl px-6 py-3 rounded-full shadow-xl transition-all duration-300 z-10">
       Ver Surpresa ✨
     </button>
   </div>
 
+  <!-- Conteúdo da surpresa -->
   <div id="surpriseContent" class="hidden space-bg flex flex-col items-center justify-center min-h-screen p-4 relative">
     <div id="tsparticles2"></div>
     <div id="tsparticlesHearts" class="hidden"></div>
-    <div class="mb-6">
-      <iframe class="rounded-lg" style="border-radius:12px" src="https://open.spotify.com/embed/track/7eJMfftS33KTjuF7lTsMCx?utm_source=generator" width="100%" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <div class="mb-6 w-full max-w-md">
+      <iframe class="rounded-lg w-full" style="border-radius:12px" src="https://open.spotify.com/embed/track/7eJMfftS33KTjuF7lTsMCx?utm_source=generator" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
     <div id="pairContainer" class="surprise-pair">
       <div class="surprise-block">
